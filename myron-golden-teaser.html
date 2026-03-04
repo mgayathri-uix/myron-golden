@@ -1,0 +1,266 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Myron Golden — Make More Offers Challenge</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Barlow:wght@300;400;500&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet"><style>
+:root{--bk:#0D0818;--sf:#130E22;--s2:#1A1230;--gold:#C9A84C;--gold2:#E8C96A;--gold-p:rgba(201,168,76,.1);--gold-b:rgba(201,168,76,.25);--pur:#6B21A8;--wh:#F5F0E8;--tx:#8A7FA0;--mu:#3D3456;--rl:#1F1836}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bk);color:var(--wh);font-family:'Barlow',sans-serif;overflow-x:hidden}
+/* grain texture */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.6}
+
+/* TOP DECREE BAR */
+.decree-bar{background:linear-gradient(90deg,var(--bk),var(--s2),var(--bk));border-bottom:1px solid var(--gold-b);padding:11px 52px;display:flex;align-items:center;justify-content:center;gap:20px}
+.dec-orn{color:var(--gold);font-size:14px;opacity:.6}
+.dec-t{font-family:'Cinzel',serif;font-size:10px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.8}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 52px;background:rgba(13,8,24,.97);border-bottom:1px solid var(--rl);backdrop-filter:blur(12px)}
+.logo{font-family:'Cinzel',serif;font-size:18px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--wh)}
+.logo em{font-style:normal;color:var(--gold)}
+.nav-tag{font-family:'Barlow',sans-serif;font-size:11px;font-weight:300;color:var(--tx);letter-spacing:.08em}
+.nav-seal{width:28px;height:28px;border-radius:50%;border:1px solid var(--gold-b);display:flex;align-items:center;justify-content:center;font-size:13px}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;z-index:1;text-align:center;padding:100px 52px 80px;border-bottom:1px solid var(--rl);overflow:hidden}
+
+/* radial purple glow */
+.hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:700px;background:radial-gradient(ellipse,rgba(107,33,168,.18) 0%,transparent 65%);pointer-events:none}
+/* gold floor glow */
+.hero::after{content:'';position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);width:700px;height:200px;background:radial-gradient(ellipse,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none}
+
+/* big watermark crown */
+.hero-wm{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:480px;opacity:.018;user-select:none;pointer-events:none;line-height:1}
+
+.hero-kicker{display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:32px;opacity:0;animation:up .5s .1s forwards}
+.kicker-line{width:40px;height:1px;background:var(--gold);opacity:.5}
+.kicker-text{font-family:'Cinzel',serif;font-size:10px;font-weight:400;letter-spacing:.35em;text-transform:uppercase;color:var(--gold)}
+
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,6.5vw,98px);font-weight:700;line-height:1.05;color:var(--wh);margin-bottom:28px;opacity:0;animation:up .8s .2s forwards;max-width:900px}
+h1 em{font-style:italic;color:var(--gold)}
+h1 .outline{-webkit-text-stroke:1.5px rgba(201,168,76,.4);color:transparent}
+
+/* ornamental divider */
+.orn-div{display:flex;align-items:center;gap:16px;justify-content:center;margin:0 auto 28px;opacity:0;animation:fi .6s .45s forwards}
+.orn-line{flex:1;max-width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-b))}
+.orn-line.r{background:linear-gradient(90deg,var(--gold-b),transparent)}
+.orn-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);opacity:.6}
+
+.hero-sub{font-size:17px;font-weight:300;color:var(--tx);line-height:1.85;max-width:620px;margin:0 auto 48px;opacity:0;animation:up .7s .5s forwards}
+.hero-sub strong{color:var(--wh);font-weight:400}
+
+.btn{display:inline-flex;align-items:center;gap:14px;background:linear-gradient(135deg,var(--gold),#B8922A);color:#0D0818;font-family:'Cinzel',serif;font-size:13px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:18px 44px;text-decoration:none;border-radius:2px;transition:transform .2s,box-shadow .2s,opacity .2s;opacity:0;animation:up .6s .62s forwards;position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);pointer-events:none}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 48px rgba(201,168,76,.3);opacity:.92}
+.btn-arr{transition:transform .2s}
+.btn:hover .btn-arr{transform:translateX(4px)}
+
+.btn-note{font-size:11px;font-weight:300;color:var(--tx);letter-spacing:.06em;margin-top:14px;opacity:0;animation:fi .5s .78s forwards}
+.btn-note span{color:var(--gold)}
+
+/* HERO STATS — four pillars */
+.pillars{display:flex;gap:1px;background:var(--rl);margin-top:72px;width:100%;max-width:860px;opacity:0;animation:up .7s .9s forwards}
+.pillar{flex:1;background:var(--sf);padding:28px 20px;text-align:center;position:relative}
+.pillar::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:20px;background:var(--gold);opacity:.3}
+.p-n{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:6px}
+.p-l{font-family:'Cinzel',serif;font-size:8px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--mu)}
+
+/* MIDDLE: THE FOUR OFFER TYPES */
+.offers{position:relative;z-index:1;background:var(--sf);border-top:1px solid var(--rl)}
+.off-header{padding:80px 52px 60px;text-align:center;border-bottom:1px solid var(--rl)}
+.off-kicker{display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:24px}
+.off-kicker-t{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.8}
+h2.off-hl{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,72px);font-weight:700;line-height:1.05;color:var(--wh);max-width:700px;margin:0 auto 20px}
+h2.off-hl em{font-style:italic;color:var(--gold)}
+.off-desc{font-size:15px;font-weight:300;color:var(--tx);line-height:1.85;max-width:540px;margin:0 auto}
+
+/* four offer cards in a 2x2 grid */
+.off-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rl)}
+.off-card{background:var(--sf);padding:48px 48px;position:relative;transition:background .25s;overflow:hidden}
+.off-card:hover{background:var(--s2)}
+.off-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .25s}
+.off-card:hover::before{opacity:.5}
+.off-num{font-family:'Cinzel',serif;font-size:11px;font-weight:400;letter-spacing:.3em;color:var(--gold);opacity:.5;margin-bottom:16px}
+.off-name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--wh);line-height:1.2;margin-bottom:12px}
+.off-name em{font-style:italic;color:var(--gold)}
+.off-desc2{font-size:14px;font-weight:300;color:var(--tx);line-height:1.75}
+.off-badge{display:inline-block;margin-top:18px;font-family:'Cinzel',serif;font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);background:var(--gold-p);border:1px solid var(--gold-b);padding:5px 14px;border-radius:1px}
+
+/* CLIFFHANGER */
+.cliff{padding:110px 52px;position:relative;z-index:1;overflow:hidden;background:var(--bk);border-top:1px solid var(--rl);text-align:center}
+.cliff::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(107,33,168,.12) 0%,transparent 65%);pointer-events:none}
+.cliff-wm{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:380px;opacity:.015;user-select:none;pointer-events:none;line-height:1}
+.cliff-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+.cliff-kicker{display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:28px}
+.ck-t{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.8}
+h2.cliff-hl{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,6vw,88px);font-weight:700;line-height:1.05;color:var(--wh);margin-bottom:24px}
+h2.cliff-hl em{font-style:italic;color:var(--gold)}
+.cliff-body{font-size:16px;font-weight:300;color:var(--tx);line-height:1.85;max-width:600px;margin:0 auto 48px}
+.cliff-body strong{color:var(--wh);font-weight:400}
+
+/* LOCKED CHALLENGE SCROLL */
+.scroll-wrap{max-width:680px;margin:0 auto;position:relative}
+.scroll-lbl{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);margin-bottom:14px}
+.scroll{background:var(--sf);border:1px solid var(--rl);position:relative;overflow:hidden}
+.scroll-head{padding:16px 28px;border-bottom:2px solid;border-image:linear-gradient(90deg,transparent,var(--gold),transparent) 1;display:flex;align-items:center;justify-content:space-between;background:var(--s2)}
+.scroll-title{font-family:'Cinzel',serif;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.scroll-badge{font-family:'Cinzel',serif;font-size:9px;color:var(--gold);background:var(--gold-p);border:1px solid var(--gold-b);padding:4px 14px;letter-spacing:.15em;text-transform:uppercase;border-radius:1px}
+.scroll-items{display:flex;flex-direction:column;gap:1px;background:var(--rl);filter:blur(5px);opacity:.18;user-select:none;pointer-events:none}
+.scroll-item{background:var(--sf);padding:18px 28px;display:flex;align-items:center;gap:16px}
+.si-roman{font-family:'Cinzel',serif;font-size:12px;font-weight:600;color:var(--gold);opacity:.7;min-width:32px}
+.si-c{flex:1}
+.si-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--wh);margin-bottom:2px}
+.si-sub{font-size:12px;font-weight:300;color:var(--tx);letter-spacing:.04em}
+.si-tag{font-family:'Cinzel',serif;font-size:9px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;background:var(--gold-p);border:1px solid var(--gold-b);padding:2px 10px;border-radius:1px;white-space:nowrap}
+.scroll-ov{position:absolute;inset:0;top:50px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:rgba(13,8,24,.8);backdrop-filter:blur(3px)}
+.lock-seal{font-size:28px}
+.lock-lbl{font-family:'Cinzel',serif;font-size:16px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.lock-sub{font-family:'Barlow',sans-serif;font-size:11px;font-weight:300;color:var(--tx);letter-spacing:.06em}
+
+/* ANIMATIONS */
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.rev{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.rev.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+</style></head><body>
+
+<!-- DECREE BAR -->
+<div class="decree-bar">
+  <span class="dec-orn">&#10022;</span>
+  <span class="dec-t">The Make More Offers Challenge</span>
+  <span class="dec-orn">&#10022;</span>
+  <span class="dec-t">5 Days &middot; Biblical &amp; Business Principles &middot; Generational Wealth</span>
+  <span class="dec-orn">&#10022;</span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo"><em>Myron</em> Golden</div>
+  <div class="nav-tag">Business Mastery &middot; Offer Creation &middot; Generational Wealth</div>
+  <div class="nav-seal">&#9813;</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-wm">&#9813;</div>
+
+  <div class="hero-kicker">
+    <div class="kicker-line"></div>
+    <div class="kicker-text">Dr. Myron Golden &mdash; Make More Offers Challenge</div>
+    <div class="kicker-line"></div>
+  </div>
+
+  <h1>From the <em>Trash Man</em><br>to the <em>Cash Man</em> &mdash;<br><span class="outline">Now It's Your Turn.</span></h1>
+
+  <div class="orn-div">
+    <div class="orn-line"></div>
+    <div class="orn-diamond"></div>
+    <div class="orn-diamond" style="opacity:.35;margin:0 4px"></div>
+    <div class="orn-diamond"></div>
+    <div class="orn-line r"></div>
+  </div>
+
+  <p class="hero-sub">Myron Golden teaches entrepreneurs the <strong>Biblical and practical principles</strong> behind building generational wealth &mdash; through offers, sales, and business mastery. He didn't come from money. He came from discipline, faith, and an obsession with understanding how wealth is really built.</p>
+
+  <a href="#" class="btn">Join the Make More Offers Challenge <span class="btn-arr">&#8594;</span></a>
+  <div class="btn-note">5-Day Live Challenge &middot; <span>General Admission $97</span> &middot; VIP $297</div>
+
+  <div class="pillars">
+    <div class="pillar"><div class="p-n">30+</div><div class="p-l">Years Experience</div></div>
+    <div class="pillar"><div class="p-n">8-Fig</div><div class="p-l">Days Achieved</div></div>
+    <div class="pillar"><div class="p-n">1M+</div><div class="p-l">YouTube Subs</div></div>
+    <div class="pillar"><div class="p-n">$97</div><div class="p-l">General Admission</div></div>
+  </div>
+</section>
+
+<!-- THE FOUR OFFERS -->
+<section class="offers">
+  <div class="off-header rev">
+    <div class="off-kicker">
+      <div class="kicker-line" style="max-width:30px"></div>
+      <div class="off-kicker-t">The Four Pillars of Offer Mastery</div>
+      <div class="kicker-line" style="max-width:30px"></div>
+    </div>
+    <h2 class="off-hl">Most businesses don't have a<br><em>money problem</em> &mdash; they have an <em>offer problem.</em></h2>
+    <p class="off-desc">Myron Golden teaches the four offer types that create the foundation of a seven-to-eight figure business. Master these, and the income takes care of itself.</p>
+  </div>
+
+  <div class="off-grid">
+    <div class="off-card rev">
+      <div class="off-num">I &mdash; The First Offer</div>
+      <div class="off-name"><em>Lead Generation</em> Offer</div>
+      <p class="off-desc2">The offer that builds your list and fills your world with people who are already raising their hand to buy. This is the foundation of every scalable business.</p>
+      <span class="off-badge">Builds the List</span>
+    </div>
+    <div class="off-card rev d1">
+      <div class="off-num">II &mdash; The Foundation</div>
+      <div class="off-name"><em>Core Product</em> Offer</div>
+      <p class="off-desc2">The offer that makes your business sustainable and scalable. The one thing you are known for. Without a strong core offer, everything else falls apart.</p>
+      <span class="off-badge">Builds the Business</span>
+    </div>
+    <div class="off-card rev d2">
+      <div class="off-num">III &mdash; The Multiplier</div>
+      <div class="off-name"><em>Premium Value</em> Offer</div>
+      <p class="off-desc2">The secret sauce of exponential scalability. The offer that takes your income from six figures to seven — and from seven to eight. The one most people never build.</p>
+      <span class="off-badge">Builds the Legacy</span>
+    </div>
+    <div class="off-card rev d3">
+      <div class="off-num">IV &mdash; The Kingdom</div>
+      <div class="off-name"><em>Continuity</em> Offer</div>
+      <p class="off-desc2">Do the work once, get paid forever. The offer that turns your expertise into a recurring revenue engine — so your business builds wealth while you sleep.</p>
+      <span class="off-badge">Builds Generational Wealth</span>
+    </div>
+  </div>
+</section>
+
+<!-- CLIFFHANGER -->
+<section class="cliff">
+  <div class="cliff-wm">&#9813;</div>
+  <div class="cliff-inner">
+    <div class="cliff-kicker rev">
+      <div class="kicker-line" style="max-width:30px"></div>
+      <div class="ck-t">Inside the 5-Day Challenge</div>
+      <div class="kicker-line" style="max-width:30px"></div>
+    </div>
+    <h2 class="cliff-hl rev">Your next level<br>starts <em>here.</em></h2>
+    <div class="orn-div rev" style="margin-bottom:28px">
+      <div class="orn-line"></div>
+      <div class="orn-diamond"></div>
+      <div class="orn-diamond" style="opacity:.35;margin:0 4px"></div>
+      <div class="orn-diamond"></div>
+      <div class="orn-line r"></div>
+    </div>
+    <p class="cliff-body rev"><strong>Five days. Biblical principles. Real results.</strong> Myron Golden has helped entrepreneurs achieve $100K days, $1M days, and even $10M days. The Make More Offers Challenge is where he hands you the exact framework — live, interactive, and built for immediate implementation. Not theory. Not hype. The real blueprint for generational wealth.</p>
+
+    <div class="scroll-wrap rev d2">
+      <div class="scroll-lbl">// Challenge curriculum &mdash; access required to view full content</div>
+      <div class="scroll">
+        <div class="scroll-head">
+          <div class="scroll-title">&#9813; Make More Offers Challenge &mdash; 5-Day Curriculum</div>
+          <div class="scroll-badge">Enrollment Required</div>
+        </div>
+        <div class="scroll-items">
+          <div class="scroll-item"><div class="si-roman">I</div><div class="si-c"><div class="si-name">The Offer Creation Framework</div><div class="si-sub">Lead gen &middot; core &middot; premium &middot; continuity — the complete four-offer system</div></div><div class="si-tag">Day One</div></div>
+          <div class="scroll-item"><div class="si-roman">II</div><div class="si-c"><div class="si-name">Emotional Cooperation &amp; Logical Justification</div><div class="si-sub">How Myron makes any offer irresistible — the psychology behind yes</div></div><div class="si-tag">Day Two</div></div>
+          <div class="scroll-item"><div class="si-roman">III</div><div class="si-c"><div class="si-name">Stage, Screen &amp; Sales Mastery</div><div class="si-sub">Sell from any platform — live, virtual, written — and close at the highest level</div></div><div class="si-tag">Day Three</div></div>
+          <div class="scroll-item"><div class="si-roman">IV</div><div class="si-c"><div class="si-name">The Biblical Wealth Principles</div><div class="si-sub">The spiritual and practical laws that govern generational wealth creation</div></div><div class="si-tag">Day Four</div></div>
+          <div class="scroll-item"><div class="si-roman">V</div><div class="si-c"><div class="si-name">Scaling to Eight Figures</div><div class="si-sub">The BOSS Moves framework — how to build a legacy business, not just an income</div></div><div class="si-tag">Day Five</div></div>
+        </div>
+        <div class="scroll-ov">
+          <div class="lock-seal">&#128274;</div>
+          <div class="lock-lbl">Enrollment Required</div>
+          <div class="lock-sub">Join the challenge to unlock the full 5-day curriculum</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:48px" class="rev d3">
+      <a href="#" class="btn">Join the Make More Offers Challenge &#8594;</a>
+      <div class="btn-note" style="opacity:1">General Admission <span>$97</span> &middot; VIP Experience <span>$297</span> &middot; 10x Value Guarantee</div>
+    </div>
+  </div>
+</section>
+
+<script>
+const els=document.querySelectorAll('.rev');
+const io=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('on')),{threshold:.08});
+els.forEach(el=>io.observe(el));
+</script>
+</body></html>
